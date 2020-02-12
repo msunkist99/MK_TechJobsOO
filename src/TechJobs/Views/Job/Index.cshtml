@@ -1,7 +1,8 @@
 ﻿@{
 // TODO #2.1 COMPLETED- declare the ViewModel (outside of this @{ } block)
 }
-@model.TechJobs.Models
+
+@model TechJobs.Models.Job
 
     <table class="job-listing">
         @{
@@ -19,9 +20,9 @@
         <tr>
             <td>@Model.ID</td>
             <td>@Model.Name</td>
-            <td>@Model.Employer</td>
-            <td>@Model.Location</td>
-            <td>@Model.CoreCompentency</td>
-            <td>@Model.PositionType</td>
+            <td>@Model.Employer.ToString()</td>
+            <td>@Model.Location.ToString()</td>
+            <td>@Model.CoreCompetency.ToString()</td>
+            <td>@Model.PositionType.ToString()</td>
         </tr>
     </table>

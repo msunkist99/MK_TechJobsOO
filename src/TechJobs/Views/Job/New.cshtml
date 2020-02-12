@@ -23,14 +23,14 @@
 
     <div class="form-group">
         <label asp-for="CoreCompetencyId"></label>
-        <select asp-for="CoreCompetencyId"></select>
+        <select asp-for="CoreCompetencyId" asp-items="Model.CoreCompetencies"></select>
     </div>
 
     <div class="form-group">
         <label asp-for="PositionTypeId"></label>
-        <select asp-for="PositionTypeId"></select>
+        <select asp-for="PositionTypeId" asp-items="Model.PositionTypes"></select>
     </div>
 
-
     <input type="submit" value="Add Job" />
+
 </form>
