@@ -3,15 +3,16 @@
     public class JobField
     {
         public int ID { get; set; }
-        private static int nextId = 1;
+        //private static int nextId = 1;
 
         public string Value { get; set; }
 
         public JobField()
         {
-            ID = nextId;
-            nextId++;
+            //ID = nextId;
+            //nextId++;
         }
+
 
         public JobField(string value) : this()
         {

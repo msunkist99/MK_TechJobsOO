@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TechJobs.Models;
+using TechJobs.ViewModels;
 
 namespace TechJobs.Data
 {
@@ -100,6 +101,46 @@ namespace TechJobs.Data
                           select j;
 
             return results.Single();
+        }
+
+        public int AddJob(NewJobViewModel newJobViewModel)
+        {
+            Employer employer = new Employer()
+            {
+                ID = newJobViewModel.EmployerId,
+                Value = newJobViewModel.Employers[newJobViewModel.EmployerId].Text
+            };
+
+            Location location = new Location()
+            {
+                ID = newJobViewModel.LocationId,
+                Value = newJobViewModel.Locations[newJobViewModel.LocationId].Text
+            };
+
+            CoreCompetency coreCompetency = new CoreCompetency()
+            {
+                ID = newJobViewModel.CoreCompetencyId,
+                Value = newJobViewModel.CoreCompetencies[newJobViewModel.CoreCompetencyId].Text
+            };
+
+            PositionType positionType = new PositionType()
+            {
+                ID = newJobViewModel.PositionTypeId,
+                Value = newJobViewModel.PositionTypes[newJobViewModel.PositionTypeId].Text
+            };
+
+            Job newJob = new Job()
+            {
+                Name = newJobViewModel.Name,
+                Employer = employer,
+                Location = location,
+                CoreCompetency = coreCompetency,
+                PositionType = positionType
+            };
+
+            Jobs.Add(newJob);
+
+            return newJob.ID;
         }
 
     }

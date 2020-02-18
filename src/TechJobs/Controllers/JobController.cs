@@ -41,43 +41,9 @@ namespace TechJobs.Controllers
 
             if (ModelState.IsValid)
             {
-                Employer employer = new Employer()
-                {
-                    ID = newJobViewModel.EmployerId,
-                    Value = newJobViewModel.Employers[newJobViewModel.EmployerId].Text
-                };
-
-                Location location = new Location()
-                {
-                    ID = newJobViewModel.LocationId,
-                    Value = newJobViewModel.Locations[newJobViewModel.LocationId].Text
-                };
-
-                CoreCompetency coreCompetency = new CoreCompetency()
-                {
-                    ID = newJobViewModel.CoreCompetencyId,
-                    Value = newJobViewModel.CoreCompetencies[newJobViewModel.CoreCompetencyId].Text
-                };
-
-                PositionType positionType = new PositionType()
-                {
-                    ID = newJobViewModel.PositionTypeId,
-                    Value = newJobViewModel.PositionTypes[newJobViewModel.PositionTypeId].Text
-                };
-
-                Job newJob = new Job()
-                {
-                    Name = newJobViewModel.Name,
-                    Employer = employer,
-                    Location = location,
-                    CoreCompetency = coreCompetency,
-                    PositionType = positionType
-                };
-
-                jobData.Jobs.Add(newJob);
-
-                return Redirect("Index");
+                return Redirect($"Index?id={jobData.AddJob(newJobViewModel)}");
             }
+
             return View(newJobViewModel);
         }
     }
